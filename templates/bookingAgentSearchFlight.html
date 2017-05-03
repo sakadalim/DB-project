@@ -1,0 +1,41 @@
+<html>
+<head>
+  <title> Flight Search </title>
+
+</head>
+<body>
+
+<h1>Search for upcoming fights </h1>
+
+Username: {{username}} <br><br>
+<form action="/customerSearchFlightGetInfo" method="POST">
+  From:
+  <input type="text" name="source_city" placeholder="city/airport name" required/>
+  <br>
+  To:
+  <input type="text" name="dest_city" placeholder="city/airport name" required/>
+  <br>
+  Input Type:
+  <select name="input_type">
+    <option value="city">city</option>
+    <option value="airport">airport</option>
+  </select>
+<br><br>
+
+*Please use the same input type for both the 'From' field and 'To' field. <br><br>
+
+Date:  <input type="date" name="date_entered" placeholder="yyyy/mm/dd"  required/></br>
+<br><br>
+  <input type="submit" value= search />
+
+  {% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+  {% endif %}
+</form>
+
+<a href="/bookingAgentPage">Back</a><br><br>
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>

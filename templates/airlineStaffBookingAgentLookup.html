@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title> View Top Booking Agents</title>
+</head>
+<body>
+	<h1>Welcome {{username}}</h1>
+
+<style type = "text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+<h2> Top 5 Booking Agents Based on Ticket Sales: </h2>
+<table>
+  <th>Booking Agent ID</th>
+  <th>Tickets Sold</th>
+
+
+  {% for line in data %}
+    <tr>
+      <td>{{line.booking_agent_id}}</td>
+      <td>{{line.ticket_sales}}</td>
+    </tr>
+
+  {% endfor %}
+</table>
+<br><br>
+<form action="/airlineStaffBookingAgentLookupAction" method="POST">
+Time frame for the search:
+<select name="Time Frame">
+    <option value="month">Past Month</option>
+    <option value="year">Past Year</option>
+  </select>
+  <br><br>
+  <input type="submit" value= search />
+
+  {% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+  {% endif %}
+  </form>
+
+<br><br>
+<a href="/airlineStaffBookingAgentLookupCommission">Top Booking Agents based off commission</a><br><br>
+<a href="/airlineStaffPage">Back</a><br><br>
+</body>

@@ -1,0 +1,70 @@
+<html>
+<head>
+  <title> View My Flights </title>
+
+</head>
+<body>
+
+<h3> User: {{username}} </h3>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+<h3> Flights for the next 30 days:</h3>
+<table>
+  <th>Airline</th>
+  <th>Flight Number</th>
+  <th>From</th>
+  <th>Departure Time</th>
+  <th>To</th>
+  <th>Arrival Time</th>
+  <th>Price</th>
+  <th>Status</th>
+  <th>Airplane ID</th>
+
+  {% for line in data %}
+    <tr>
+      <td>{{line.airline_name}}</td>
+      <td>{{line.flight_num}}</td>
+      <td>{{line.departure_airport}}</td>
+      <td>{{line.departure_time}}</td>
+      <td>{{line.arrival_airport}}</td>
+      <td>{{line.arrival_time}}</td>
+      <td>{{line.price}}</td>
+      <td>{{line.status}}</td>
+      <td>{{line.airplane_id}}</td>
+    </tr>
+
+  {% endfor %}
+</table>
+<br><br>
+
+<form action="/viewMyFlights" method="POST">
+  View flights by
+  <select name="search_type">
+    <option value="date">Date</option>
+    <option value="airport">Airport</option>
+    <option value="city">City</option>
+  </select><br>
+  From:
+  <input type="text" name="source" placeholder="Airport/City" />
+  <input type="date" name="start_date" /><br>
+  To:
+  <input type="text" name="dest" placeholder="Airport/City" />
+  <input type="date" name="end_date" />
+  <br>
+  <input type="submit" value= Submit />
+
+</form>
+{% if error %}
+  <p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+<br> <br>
+<a href="/airlineStaffPage">Back</a>
+<a href="/logout">Logout</a>
+
+
+</body>
+</html>

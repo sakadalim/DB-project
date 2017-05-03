@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title> Flight Search </title>
+
+</head>
+<body>
+
+<form action="/guestSearchGetInfo" method="POST">
+  From:
+  <input type="text" name="source_city" placeholder="city/airport name" required/>
+  <br>
+  To:
+  <input type="text" name="dest_city" placeholder="city/airport name" required/>
+  <br>
+  Input Type:
+  <select name="input_type">
+    <option value="city">city</option>
+    <option value="airport">airport</option>
+  </select>
+<br><br>
+
+Please use the same input type for both the 'From' field and 'To' field. <br><br>
+
+Date:  <input type="date" name="date_entered" placeholder="yyyy/mm/dd"  required/></br>
+<br><br>
+  <input type="submit" value= search />
+  {% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+  {% endif %}
+</form>
+
+<a href="/">Back</a>
+
+</body>
+</html>

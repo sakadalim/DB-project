@@ -1,0 +1,50 @@
+<html>
+<head>
+<title> Upcoming Flight Result </title>
+</head>
+<body>
+  <style type="text/css">
+  table, th, td{
+    border: 1px solid black;
+  }
+  </style>
+Username: {{username}}
+<table>
+  <th>Airline</th>
+  <th>Flight Number</th>
+  <th>From</th>
+  <th>Departure Time</th>
+  <th>To</th>
+  <th>Arrival Time</th>
+  <th>Price</th>
+  <th>Status</th>
+
+  {% for line in result %}
+    <tr>
+      <td>{{line.airline_name}}</td>
+      <td>{{line.flight_num}}</td>
+      <td>{{line.departure_airport}}</td>
+      <td>{{line.departure_time}}</td>
+      <td>{{line.arrival_airport}}</td>
+      <td>{{line.arrival_time}}</td>
+      <td>{{line.price}}</td>
+      <td>{{line.status}}</td>
+    </tr>
+
+  {% endfor %}
+</table>
+
+<br><br>
+
+<select name="flight_num">
+
+  {% for line in result %}
+  <option value={{line.flight_num}}>{{line.flight_num}}</option>
+</select>
+
+<a href="/bookingAgentFlightGetInfo">Back</a>
+<a href="/logout">Logout</a>
+
+</body>
+
+</html>

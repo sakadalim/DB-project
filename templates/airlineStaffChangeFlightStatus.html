@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>Change Flight Status </title>
+
+</head>
+<body>
+
+<h1>Input flight information and new status: </h1>
+
+Username: {{username}} <br><br>
+<form action="/airlineStaffChangeFlightStatusAction" method="POST">
+  Airline Name:
+  <input type="text" name="airline_name" placeholder="Airline Name" required/>
+  <br>
+  Flight Number:
+  <input type="text" name="flight_number" placeholder="Flight Number" required/>
+  <br>
+  New Satus:
+  <select name="flight_status">
+    <option value="On Time">On Time</option>
+    <option value="Delayed">Delayed</option>
+    <option value="Departing">Departing</option>
+    <option value="Canceled">Canceled</option>
+  </select>
+<br><br>
+<br><br>
+  <input type="submit" value= search />
+
+  {% if error %}
+    <p class="error"><strong></strong> {{error}}</p>
+  {% endif %}
+</form>
+
+<a href="/airlineStaffPage">Back</a><br><br>
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>

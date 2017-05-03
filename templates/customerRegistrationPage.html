@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title> Customer Registration </title>
+
+</head>
+<body>
+
+<form action="/addNewCustomer" method="POST">
+  Email:
+  <input type="text" name="email" placeholder="Enter your email" required/><br>
+  Name:
+  <input type="text" name="name" placeholder="Full Name" required/><br>
+  Password:
+  <input type="password" name="password" placeholder="Password" required/><br>
+  Building Number:
+  <input type="text"  name="building_number"  /><br>
+  Street:
+  <input type="text"  name="street" /><br>
+  City:
+  <input type="text"  name="city" /><br>
+  State:
+  <input type="text" name="state"  /><br>
+  Phone Number:
+  <input  type="text" name="phone_number" /><br>
+  Passport Number:
+  <input type="text"  name="passport_number" /><br>
+  Passport Expiration:
+  <input type="date"  name="passport_expiration"   /><br>
+  Country:
+  <input type="text"  name="passport_country"  /><br>
+  Date of Birth:
+  <input type="date"  name="date_of_birth"  /><br>
+
+  <br><br>
+  <input type="submit" value= Submit />
+
+
+  {% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+  {% endif %}
+
+</form>
+
+<a href="/register">Back</a>
+<a href="/">Home</a>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Most frequent customer's flight history </title>
+</head>
+<body>
+	<h1>Welcome {{username}}</h1>
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+<h3> Top Customer flight history: </h3>
+<table>
+  <th>Customer Name</th>
+  <th>Flight Number</th>
+
+
+  {% for line in data %}
+    <tr>
+      <td>{{line.name}}</td>
+      <td>{{line.flight_num}}</td>
+    </tr>
+
+  {% endfor %}
+</table>
+<br><br>
+
+<a href="/airlineStaffTopCustomer">Back</a><br><br>
+
+</body>
+</html>

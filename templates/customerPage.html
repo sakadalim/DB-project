@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title> {{posts[0]['name']}} Page</title>
+</head>
+<body>
+	<h1>Welcome {{posts[0]['name']}}</h1>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+<h3> Your flight history: </h3>
+<table>
+  <th>Airline</th>
+  <th>Flight Number</th>
+  <th>From</th>
+  <th>Departure Time</th>
+  <th>To</th>
+  <th>Arrival Time</th>
+  <th>Price</th>
+  <th>Status</th>
+
+  {% for line in posts %}
+    <tr>
+      <td>{{line.airline_name}}</td>
+      <td>{{line.flight_num}}</td>
+      <td>{{line.departure_airport}}</td>
+      <td>{{line.departure_time}}</td>
+      <td>{{line.arrival_airport}}</td>
+      <td>{{line.arrival_time}}</td>
+      <td>{{line.price}}</td>
+      <td>{{line.status}}</td>
+    </tr>
+
+  {% endfor %}
+</table>
+<br><br>
+
+<a href="/customerSearchFlight">Search / Purchase upcoming flights</a><br><br>
+
+
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>

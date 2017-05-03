@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title> Flight Status </title>
+
+</head>
+<body>
+
+<form action="/guestFlightStat" method="POST">
+  Flight Number:
+  <input type="text" name="flight_num" placeholder="Flight Number" required/>
+  <br><br>
+
+  Date:
+  <input type="date" name="date_entered" placeholder="yyyy/mm/dd"  required/></br>
+  <br><br>
+
+  <input type="submit" value= search />
+
+
+  {% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+  {% endif %}
+
+</form>
+
+<a href="/">Back</a>
+
+</body>
+</html>

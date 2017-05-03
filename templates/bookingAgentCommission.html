@@ -1,0 +1,43 @@
+<html>
+<head>
+  <title> Total Commission </title>
+
+</head>
+<body>
+<style type = "text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+{% if data %}
+<h3> Your flight history: </h3>
+<table>
+  <th>Booking Agent ID</th>
+  <th>Total Commission</th>
+
+  {% for line in data %}
+    <tr>
+      <td>{{line.booking_agent_id}}</td>
+      <td>{{line.commission}}</td>
+    </tr>
+
+  {% endfor %}
+</table>
+<br><br>
+{% endif %}
+
+<br><br>
+
+<form action="/bookingAgentCommission" method="POST">
+
+From:<input type="date" name="start_date" placeholder="yyyy/mm/dd"  /></br>
+To:<input type="date" name="end_date" placeholder="yyyy/mm/dd"  /></br>
+<select name="input_type">
+  <option value="past_month"> Past Month</option>
+  <option value="date_range">Date Specified</option>
+</select><br><br>
+  <input type="submit" value= search /><br>
+</form>
+<br><br>
+<a href="/bookingAgentPage">Back</a><br><br>
+<a href="/logout">Logout</a>

@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title> Airline Staff Home </title>
+
+</head>
+<body>
+
+<h1> Welcome {{data['first_name']}} {{data['last_name']}} </h1>
+
+<a href="/viewMyFlights">View My Flights</a><br>
+<a href="/createNewFlight">Create New Flight</a><br>
+<a href="/airlineStaffChangeFlightStatus">Change Flight Status</a><br>
+<a href="/airlineStaffAddAirplane">Add New Airplane</a><br>
+<a href="/airlineStaffAddAirport">Add New Airport</a><br>
+<a href="/airlineStaffBookingAgentLookup">View Booking Agent</a><br>
+<a href="/airlineStaffTopCustomer">View Frequent Customer</a><br>
+<a href="/viewReport">View Reports</a><br>
+
+  <br>
+
+{% if message %}
+  <p class="message"><strong>Hey! </strong> {{message}}</p>
+{% endif %}
+
+<a href="/logout">Logout</a>
+
+
+</body>
+</html>

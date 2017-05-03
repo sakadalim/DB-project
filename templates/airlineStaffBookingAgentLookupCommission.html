@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title> View Top Booking Agents</title>
+</head>
+<body>
+	<h1>Welcome {{username}}</h1>
+  <style type = "text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+<h2> Top 5 Booking Agents Based on Commission: </h2>
+<table>
+  <th>Booking Agent ID</th>
+  <th>Commission</th>
+
+
+  {% for line in data %}
+    <tr>
+      <td>{{line.booking_agent_id}}</td>
+      <td>{{line.commission}}</td>
+    </tr>
+
+  {% endfor %}
+</table>
+<a href="/airlineStaffBookingAgentLookup">Back</a><br><br>
+
+</body>
+</html>

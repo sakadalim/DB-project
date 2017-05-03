@@ -1,0 +1,74 @@
+<html>
+<head>
+  <title> Flight Report </title>
+  <!-- <link rel="stylesheet" type="text/css" href="style.css"/> -->
+
+</head>
+
+
+<body>
+
+<h1>Report </h1>
+
+Username: {{username}} <br>
+Airline: {{airline_name}}<br><br>
+<form action="/viewReport" method="POST">
+  Start:
+  <input type="date" name="start_date"/>
+  <br>
+  End:
+  <input type="date" name="end_date"/>
+  <br>
+  Search by:
+  <select name="input_type">
+    <option value="date_entered">Date Range</option>
+    <option value="past_month">Past Month</option>
+    <option value="past_year">Past Year</option>
+  </select>
+<br><br>
+
+  <input type="submit" value= search />
+  {% if error %}
+    <p class="error"><strong></strong> {{error}}</p>
+  {% endif %}
+</form>
+
+{% if date_data %}
+Number of tickets sold for the specified date: {{date_data.ticket_sales}}
+{% endif %}
+
+{% if month_count %}
+Number of tickets sold for the past month: {{month_count.ticket_sales}}
+{% endif %}
+
+{% if  year_data %}
+<br><br>
+<style type="text/css">
+table, th, td{
+  border: 1px solid black;
+}
+</style>
+<table>
+  <th>Month</th>
+  <th>Ticket Sold</th>
+
+  {% for line in year_data %}
+    <tr>
+      <td>{{line.Month}}</td>
+      <td>{{line.ticket_sales}}</td>
+    </tr>
+
+  {% endfor %}
+</table>
+{% endif %}
+
+
+
+<br><br>
+
+<a href="/airlineStaffPage">Back</a><br><br>
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>

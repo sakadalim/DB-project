@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Add Airplane </title>
+
+</head>
+<body>
+
+<h1>Please input information about the airplane: </h1>
+Username: {{username}} <br><br>
+<form action="/airlineStaffAddAirplaneAction" method="POST">
+  Airline Name:
+  <input type="text" name="airline_name" placeholder="Airline Name" required/>
+  <br>
+  Airplane ID:
+  <input type="text" name="airplane_id" placeholder="Airplane ID " required/>
+  <br>
+  Number Of Seats:
+  <input type="text" name="seats" placeholder="Number Of Seats" required/>
+  <br>
+<br><br>
+<br><br>
+  <input type="submit" value= submit />
+
+  {% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+  {% endif %}
+<br><br>
+<a href="/airlineStaffPage">Back</a><br><br>
+
+<a href="/logout">Logout</a>
+</form>

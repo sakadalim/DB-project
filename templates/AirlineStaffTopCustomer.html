@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title> View Most frequent customer</title>
+</head>
+<body>
+	<h1>Welcome {{username}}</h1>
+<style type = "text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+<h2> Top Customer Information: </h2>
+<table>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Total Flights Taken</th>
+
+
+  {% for line in data %}
+    <tr>
+      <td>{{line.name}}</td>
+      <td>{{line.email}}</td>
+      <td>{{line.tickets_bought}}</td>
+    </tr>
+
+  {% endfor %}
+</table>
+<a href="/airlineStaffTopCustomerFlights">View all flights this customer took</a><br><br>
+<a href="/airlineStaffPage">Back</a><br><br>
+</body>

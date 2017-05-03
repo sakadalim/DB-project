@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title> Create New Flight </title>
+
+</head>
+<body>
+
+<h1>Create a new Flight </h1>
+
+Username: {{username}} <br><br>
+<form action="/createNewFlight" method="POST">
+  Airline Name:
+  <input type="text" name="airline_name" placeholder="Airline name" required/>
+  <br>
+  Flight Number:
+  <input type="text" name="flight_num" placeholder="Flight number" required/>
+  <br>
+  Departure Airport:
+  <input type="text" name="departure_airport" placeholder="Departure Airport"/>
+  <br>
+  Departure Time:
+  <input type="date" name="departure_time"/>
+  <br>
+  Arrival Airport:
+  <input type="text" name="arrival_airport" placeholder=" Arrival Airport"/>
+  <br>
+  Arrival Time:
+  <input type="date" name="arrival_time"/>
+  <br>
+  Price:
+  <input type="text" name="price" placeholder="Price"/>
+  <br>
+  Status:
+  <input type="status" name="status" placeholder="Status"/>
+  <br>
+  Airplane ID:
+  <input type="text" name="airplane_id" placeholder="Airplane ID"/>
+  <br>
+
+<br><br>
+
+  <input type="submit" value=submit />
+  {% if message %}
+    <p class="message"><strong></strong> {{message}}</p>
+  {% endif %}
+
+  {% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+  {% endif %}
+</form>
+
+<a href="/airlineStaffPage">Back</a><br><br>
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>
